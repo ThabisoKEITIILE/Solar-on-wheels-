@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Solar Stays on Wheels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8faf7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles (Same as Home) */
+        header {
+            background-color: #4caf50;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+            margin-left: 10px;
+        }
+        
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* About Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(76, 175, 80, 0.8), rgba(76, 175, 80, 0.8)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop') center/cover;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Story Section */
+        .story {
+            padding: 4rem 0;
+            background-color: #e8f5e9;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color: #2e7d32;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .story-text {
+            font-size: 1.1rem;
+        }
+        
+        .story-image {
+            text-align: center;
+        }
+        
+        .story-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 4rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+        
+        .team-member h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member .role {
+            color: #ff9800;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 4rem 0;
+            background-color: #f8faf7;
+        }
+        
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .mission-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2e7d32;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-icon {
+            font-size: 4rem;
+            color: #ff9800;
+        }
+        
+        /* Packages Section */
+        .packages {
+            padding: 4rem 0;
+            background-color: #e8f5e9;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .package-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .package-title {
+            font-family: 'Montserrat', sans-serif;
+            color: #2e7d32;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .package-price {
+            color: #ff9800;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #f57c00;
+        }
+        
+        /* Footer (Same as Home) */
+        footer {
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            color: white;
+            padding: 3rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff9800, transparent);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .footer-logo h3 {
+            margin-left: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+            padding: 8px 12px;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-links a:hover {
+            color: #ff9800;
+            transform: scale(1.05);
+            background-color: rgba(255, 152, 0, 0.2);
+        }
+        
+        .footer-text {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info a:hover {
+            color: #ff9800;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .story-content,
+            .mission-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .header-content,
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="C:\Users\THABI\Downloads\pngtree-sun-icon-logo-png-png-image_5687131.png" alt="Solar panel logo icon" class="logo-image">
+                <h1>Solar Stays on Wheels</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="our bus hotel.html">Our Bus Hotel</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="contant.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Discover the story behind our eco-friendly mobile bus hotel revolutionizing sustainable travel in Botswana and Southern Africa.</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Solar Stays on Wheels is a pioneering project in sustainable tourism, founded to promote eco-friendly travel across Botswana and Southern Africa. We believe in harnessing renewable energy to create unforgettable experiences without harming the planet.</p>
+                    <p>Our journey began with a vision to combine mobility, luxury, and sustainability. By converting a bus into a solar-powered hotel, we offer travelers the freedom to explore stunning landscapes while minimizing their environmental footprint.</p>
+                </div>
+                <div class="story-image">
+                    <img src="C:\Users\THABI\Downloads\516247400.jpg" alt="Solar bus hotel in Botswana landscape">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="C:\Users\THABI\Downloads\WhatsApp Image 2025-09-23 at 22.43.00_4b271843.jpg" alt="Warona Nkokone">
+                    <h3>Warona Nkokone</h3>
+                    <p class="role">Owner & Founder</p>
+                    <p>Passionate about sustainable tourism, Warona leads the vision for eco-luxury on wheels, ensuring every journey supports local communities and the environment.</p>
+                </div>
+                <div class="team-member">
+                    <img src="C:\Users\THABI\Downloads\WhatsApp Image 2025-09-23 at 23.35.46_cf5762ea.jpg" alt="Thabiso Elias Keitiile">
+                    <h3>Thabiso Elias Keitiile</h3>
+                    <p class="role">Head Engineer</p>
+                    <p>Expert in renewable energy systems, Thabiso designs and maintains our solar-powered bus, ensuring efficient, zero-emission operations for seamless adventures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="mission-content">
+                <div class="mission-icon">🌍</div>
+                <div class="mission-text">
+                    <h3>Mission</h3>
+                    <p>To provide mobile, solar-powered accommodations that reduce carbon footprints while exploring nature's wonders in Southern Africa.</p>
+                    <h3>Vision</h3>
+                    <p>A greener future for travel, where mobility meets sustainability, inspiring others to embrace eco-friendly adventures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section (Integrated as "Our Packages" for About Us context) -->
+    <section class="packages">
+        <div class="container">
+            <h2 class="section-title">Our Exclusive Packages</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: #555;">Choose from our curated packages designed for unforgettable eco-luxury experiences. All prices in Pula (P).</p>
+            <div class="packages-grid">
+                <!-- One Night Package -->
+                <div class="package-card">
+                    <h3 class="package-title">
+                        One Night Package
+                        <span class="package-price">P5,000 per person</span>
+                    </h3>
+                    <ul class="package-features">
+                        <li>Pick and drop transport</li>
+                        <li>Free cap and t-shirt</li>
+                        <li>Accommodation & all meals inclusive</li>
+                        <li>Access to mobile spa hot tub under the stars</li>
+                        <li>Sunset photography session</li>
+                    </ul>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+
+                <!-- Two Nights Package -->
+                <div class="package-card">
+                    <h3 class="package-title">
+                        Two Nights Package
+                        <span class="package-price">P10,000 per couple</span>
+                    </h3>
+                    <ul class="package-features">
+                        <li>Pick and drop transport</li>
+                        <li>Free cap and t-shirt</li>
+                        <li>Accommodation & all meals inclusive</li>
+                        <li>Access to mobile spa hot tub under the stars</li>
+                        <li>Sunset photography session</li>
+                        <li>Free full body massage</li>
+                        <li>Free access to live entertainment deck</li>
+                    </ul>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+
+              
